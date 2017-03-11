@@ -1,9 +1,14 @@
 ﻿  SFML_wincpp.cpp
-f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(21): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(59): warning C4305: 'argument': truncation from 'double' to 'float'
-f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(63): warning C4305: 'argument': truncation from 'double' to 'float'
-f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(66): warning C4305: 'argument': truncation from 'double' to 'float'
-f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(69): warning C4305: 'argument': truncation from 'double' to 'float'
-f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(76): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\heroes.h(37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\heroes.h(67): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\heroes.h(80): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(59): warning C4244: 'initializing': conversion from 'sf::Int64' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(68): warning C4305: 'argument': truncation from 'double' to 'float'
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(72): warning C4305: 'argument': truncation from 'double' to 'float'
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(75): warning C4305: 'argument': truncation from 'double' to 'float'
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(78): warning C4305: 'argument': truncation from 'double' to 'float'
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   SFML_WIN.vcxproj -> F:\C++SFML\SFML_WIN\Debug\SFML_WIN.exe
   SFML_WIN.vcxproj -> F:\C++SFML\SFML_WIN\Debug\SFML_WIN.pdb (Partial PDB)
