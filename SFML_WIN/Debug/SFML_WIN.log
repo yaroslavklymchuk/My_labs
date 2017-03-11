@@ -1,0 +1,9 @@
+﻿  SFML_wincpp.cpp
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(21): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(59): warning C4305: 'argument': truncation from 'double' to 'float'
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(63): warning C4305: 'argument': truncation from 'double' to 'float'
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(66): warning C4305: 'argument': truncation from 'double' to 'float'
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(69): warning C4305: 'argument': truncation from 'double' to 'float'
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(76): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SFML_WIN.vcxproj -> F:\C++SFML\SFML_WIN\Debug\SFML_WIN.exe
+  SFML_WIN.vcxproj -> F:\C++SFML\SFML_WIN\Debug\SFML_WIN.pdb (Partial PDB)
