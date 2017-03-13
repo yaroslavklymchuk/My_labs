@@ -13,6 +13,12 @@ class Doodle
 public:
 	Sprite doodle_sprite;
 	Doodle(String, float, float, float, float, float, float);
+	inline float GetPositionX() {
+		return positionX;
+	}
+	inline float GetPositionY() {
+		return positionY;
+	}
 	~Doodle();
 
 private:
