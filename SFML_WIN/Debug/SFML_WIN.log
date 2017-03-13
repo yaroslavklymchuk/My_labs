@@ -2,9 +2,12 @@
 f:\c++sfml\sfml_win\sfml_win\heroes.h(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 f:\c++sfml\sfml_win\sfml_win\heroes.h(73): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 f:\c++sfml\sfml_win\sfml_win\heroes.h(86): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(68): warning C4244: 'initializing': conversion from 'sf::Int64' to 'float', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(143): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(149): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(104): warning C4244: 'initializing': conversion from 'sf::Int64' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(140): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(166): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(178): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\sfml_wincpp.cpp(184): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   SFML_WIN.vcxproj -> F:\C++SFML\SFML_WIN\Debug\SFML_WIN.exe
   SFML_WIN.vcxproj -> F:\C++SFML\SFML_WIN\Debug\SFML_WIN.pdb (Partial PDB)

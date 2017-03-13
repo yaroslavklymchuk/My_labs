@@ -34,3 +34,30 @@ String TileMap[MAP_HEIGHT][MAP_WIDTH] = {
 
 
 };
+String FirstTileMap[MAP_HEIGHT][MAP_WIDTH] = {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+};
