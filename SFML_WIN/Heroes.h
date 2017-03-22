@@ -32,6 +32,7 @@ private:
 
 Doodle::Doodle(String file, float x_left, float y_left, float x_right, float y_right, float x_, float y_){
 	doodle_im.loadFromFile("f:/C++SFML/SFML_WIN/images/" + file);
+	doodle_im.createMaskFromColor(Color::White);
 	doodle_tex.loadFromImage(doodle_im);
 	doodle_sprite.setTexture(doodle_tex);
 	x_l = x_left;

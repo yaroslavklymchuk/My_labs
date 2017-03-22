@@ -7,7 +7,7 @@ using namespace sf;
 
 View view;
 View GetCoordForPlayer(float x, float y) {
-	view.setCenter(x + 100, y);
+	view.setCenter(x + 100, y + 100);
 	return view;
 }
 

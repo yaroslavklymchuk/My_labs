@@ -1,10 +1,11 @@
 //TODO with classes for heroes
-//problems with camera
+//problems with camera, menu
 #include <SFML/Graphics.hpp>
 #include <time.h>
 #include "Heroes.h"
 #include "Map.h"
 #include "View.h"
+#include "Menu.h"
 
 using namespace sf;
 int main()
@@ -25,12 +26,13 @@ int main()
 		platforms[i].y = rand() % 500;
 	}
 
-	RenderWindow window(VideoMode(500, 500), "Doodle_Game");
-	RenderWindow window1(VideoMode(500, 500), "Doodle_Game", Style::Titlebar);
-	view.reset(FloatRect(0, 0, 500, 500));
+	RenderWindow window(VideoMode(700, 780), "Doodle_Game");
+	//RenderWindow window1(VideoMode(500, 500), "Doodle_Game", Style::Titlebar);
+	menu(window);
+	view.reset(FloatRect(0, 0, 700, 680));
 	Font font;
 	font.loadFromFile("f:/C++SFML/SFML_WIN/Shrifts/CyrilicOld.ttf");
-	Text text("", font, 20);
+	Text text("", font, 50);
 	text.setFillColor(Color::Red);
 	text.setStyle(Text::Bold | Text::Underlined);
 	//window.setFramerateLimit(1500);
@@ -55,19 +57,16 @@ int main()
 	start_backg_sprite.setTexture(start_bacg_tex);
 	
 
-	Doodle doodle1("Doodler.png", 15, 15, 193, 180, 100,100);// creating an object of class Doodle
+	Doodle doodle1("Doodler.png", 5, 5, 170, 150, 100, 100);// creating an object of class Doodle
 	/*for (int i = 0; i < 10; i++) {
 		platform_sprite.setPosition(platforms[i].x, platforms[i].y);
 	}*/
 
 	//Enemies enemy = Enemies(10, 10, 200, 190, platforms[3].x, platforms[3].y + 150);
 
-	//TODO problem with SFML_time
-	Clock clock;
-//	float time = clock.getElapsedTime().asMicroseconds();
 	
-	//Making a starting background with another window
-	while (window1.isOpen())
+	//Making a starting background with another window 
+	/*while (window1.isOpen())
 	{
 		Event ev;
 		while (window1.pollEvent(ev)) {
@@ -86,16 +85,21 @@ int main()
 				}
 			}
 		}
-		text.setString("Начать игру");
-		text.setPosition(100, 100);
-		window1.draw(text);
+		//text.setString("Начать игру");
+		//text.setPosition(100, 100);
+	//	window1.draw(text);
 		window1.display();
-	}
+	}*/
 
 	int x = 100, y = 100, h = 200;
 	float dx = 0, dy = 0;
 
-	//Main SFML loop for window
+
+	//TODO problem with SFML_time
+	Clock clock;
+	//	float time = clock.getElapsedTime().asMicroseconds();
+
+	//Main SFML loop for main window
 	while (window.isOpen())
 	{
 		Event event;
@@ -109,7 +113,7 @@ int main()
 		}
 
 		//Moving by pushing the keybord
-		if ((Keyboard::isKeyPressed(Keyboard::Right)) || (Keyboard::isKeyPressed(Keyboard::D))) {
+		/*if ((Keyboard::isKeyPressed(Keyboard::Right)) || (Keyboard::isKeyPressed(Keyboard::D))) {
 			doodle1.doodle_sprite.setTextureRect(IntRect(15, 15, 193, 180));
 			doodle1.doodle_sprite.move(9.5, 0);
 			//GetCoordForPlayer(100, 100);
@@ -125,14 +129,16 @@ int main()
 		}
 		if ((Keyboard::isKeyPressed(Keyboard::Down)) || (Keyboard::isKeyPressed(Keyboard::S))) {
 			doodle1.doodle_sprite.move(0, 9.5);
-			//GetCoordForPlayer(100, 100);
-		}
-		//GetCoordForPlayer(100, 100);
+			//GetCoordForPlayer(100, 100);//for scrolling
+		}*/
+		//GetCoordForPlayer(doodle1.GetPositionX(), doodle1.GetPositionY());//for moving camera with hero
 		if (Keyboard::isKeyPressed(Keyboard::Right)) {
 			x += 10;
+			doodle1.doodle_sprite.setTextureRect(IntRect(5, 5, 170, 150));
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Left)) {
 			x -= 10;
+			doodle1.doodle_sprite.setTextureRect(IntRect(175, 15, -170, 150));
 		}
 
 		//moving upstairs
@@ -143,7 +149,6 @@ int main()
 			dy = -10;
 		}
 
-
 		//jumpling over the platforms
 		for (int i = 0; i < 10; i++) {
 			if ((x + 50 > platforms[i].x) && (x + 20 < platforms[i].x + 68) && (y + 70 > platforms[i].y) && (y + 70 < platforms[i].y + 14) && (dy > 0)) {
@@ -151,6 +156,7 @@ int main()
 			}
 		}
 
+		//TODO
 		//moving camera
 		/*if (y < h) {
 			for (int i = 0; i < 10; i++) {
@@ -164,7 +170,6 @@ int main()
 		}*/
 	
 		doodle1.doodle_sprite.setPosition(x, y);
-
 
 		window.clear();
 		//window.setView(view);
@@ -184,7 +189,7 @@ int main()
 			platform_sprite.setPosition(platforms[i].x, platforms[i].y);
 			window.draw(platform_sprite);
 		}
-		window.draw(platform_sprite);
+		//window.draw(platform_sprite);
 		//window.draw(enemy.enemy_sprite);
 		window.display();
 	}
