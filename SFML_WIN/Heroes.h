@@ -67,7 +67,7 @@ Enemies::Enemies(float x_left, float y_left, float x_right, float y_right, float
 	String file[5];
 	file[0] = "enemy_1.png";
 	file[1] = "enemy_2.png";
-	file[2] = "enemy_3.png";
+	file[2] = "enemy_3_.png";
 	file[3] = "enemy_4.png";
 	file[4] = "enemy_5.png";
 	

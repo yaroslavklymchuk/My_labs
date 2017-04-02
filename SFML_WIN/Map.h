@@ -10,31 +10,30 @@ const int MAP_HEIGHT = 25;
 const int MAP_WIDTH = 50;
 
 String TileMap[MAP_HEIGHT][MAP_WIDTH] = {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+"                                       ",
+"                                       ",
+"                                       ",
+"                                       ",
+"	        s                           ",
+"                                       ",
+"                                       ",
+"                            h          ",
+"                                       ",
+"                                       ",
+"                                       ",
+"                                       ",
+"                                       ",
+"                                       ",
+"                                       ",
+"                                       ",
+"       h                               ",
+"                                       ",
+"                            s          ",
+"                                       ",
+"                                       ",
+"                                       ",
+"                                       ",
+"                                       ",
 };
 String FirstTileMap[MAP_HEIGHT][MAP_WIDTH] = {
 

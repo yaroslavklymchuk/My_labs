@@ -1,6 +1,7 @@
 //TODO with classes for heroes
-//problems with camera, menu
+//problems with other types of platforms
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <time.h>
 #include "Heroes.h"
 #include "Map.h"
@@ -37,48 +38,45 @@ int main()
 	}
 
 	RenderWindow window(VideoMode(700, 780), "Doodle_Game");
-	//RenderWindow window1(VideoMode(500, 500), "Doodle_Game", Style::Titlebar);
 	menu(window);
-	view.reset(FloatRect(0, 0, 700, 780));
-	/*Font font;
-	font.loadFromFile("f:/C++SFML/SFML_WIN/Shrifts/CyrilicOld.ttf");
-	Text text("", font, 50);
-	text.setFillColor(Color::Red);
-	text.setStyle(Text::Bold | Text::Underlined);*/
-	//window.setFramerateLimit(1500);
+	
 
 	//Downoload images from file
-	Image background, platform, doodle_fire, start_backgr, crush_platf, power_plat;
+	Image background, platform, doodle_fire, start_backgr, crush_platf, power_plat, enemy1_im;
 	background.loadFromFile("f:/C++SFML/SFML_WIN/images/background_fone.jpg");
+	enemy1_im.loadFromFile("f:/C++SFML/SFML_WIN/images/enemy_3_.png");
 	platform.loadFromFile("f:/C++SFML/SFML_WIN/images/Doodle_Platform_green.png");
 	crush_platf.loadFromFile("f:/C++SFML/SFML_WIN/images/Doodle_Platform_crush.png");
 	power_plat.loadFromFile("f:/C++SFML/SFML_WIN/images/Doodle_Platform_power.png");
 	start_backgr.loadFromFile("f:/C++SFML/SFML_WIN/images/background_fone.jpg");
 	platform.createMaskFromColor(Color::White);
+	enemy1_im.createMaskFromColor(Color::White);
 	crush_platf.createMaskFromColor(Color::White);
 	power_plat.createMaskFromColor(Color::White);
 
 	//Making textures from images
-	Texture background_tex, platform_tex, start_bacg_tex, crush_pl_tex, power_pl_tex;
+	Texture background_tex, platform_tex, start_bacg_tex, crush_pl_tex, power_pl_tex, enemy1_tex;
 	background_tex.loadFromImage(background);
+	enemy1_tex.loadFromImage(enemy1_im);
 	platform_tex.loadFromImage(platform);
 	crush_pl_tex.loadFromImage(crush_platf);
 	power_pl_tex.loadFromImage(power_plat);
 	start_bacg_tex.loadFromImage(start_backgr);
 
 	//Making sprites
-	Sprite background_sprite, platform_sprite, start_backg_sprite, crush_pl_sprite, power_pl_sprite;
+	Sprite background_sprite, platform_sprite, start_backg_sprite, crush_pl_sprite, power_pl_sprite, enemy1_sprite;
 	background_sprite.setTexture(background_tex);
 	platform_sprite.setTexture(platform_tex);
+	enemy1_sprite.setTexture(enemy1_tex);
 	crush_pl_sprite.setTexture(crush_pl_tex);
 	power_pl_sprite.setTexture(power_pl_tex);
 	start_backg_sprite.setTexture(start_bacg_tex);
 	
 
-	Doodle doodle1("Doodler.png", 5, 5, 170, 150, 100, 100);// creating an object of class Doodle
+	Doodle doodle1("Doodler_1.png", 5, 5, 120, 120, 100, 100);// creating an object of class Doodle
 	
 
-	//Enemies enemy = Enemies(10, 10, 200, 190, platforms[3].x, platforms[3].y + 150);
+	//Enemies enemy = Enemies(10, 10, 200, 190, 300, 300);
 	
 	
 	int x = 100, y = 100, h = 200;
@@ -103,11 +101,11 @@ int main()
 
 		if (Keyboard::isKeyPressed(Keyboard::Right)) {
 			x += 15;
-			doodle1.doodle_sprite.setTextureRect(IntRect(5, 5, 170, 150));
+			doodle1.doodle_sprite.setTextureRect(IntRect(5, 5, 120, 120));
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Left)) {
 			x -= 15;
-			doodle1.doodle_sprite.setTextureRect(IntRect(175, 15, -170, 150));
+			doodle1.doodle_sprite.setTextureRect(IntRect(125, 5, -120, 120));
 		}
 
 		//moving upstairs
@@ -186,8 +184,13 @@ int main()
 				if (TileMap[i][j] == " ") {
 					background_sprite.setTextureRect(IntRect(50, 50, 300, 300));
 				}
+				/*if (TileMap[i][j] == "s") {
+					enemy1_sprite.setTextureRect(IntRect(5, 5, 80, 80));
+				}*/
 				background_sprite.setPosition(j * 32, i * 32);
+				//enemy1_sprite.setPosition(i * 32, j * 32);
 				window.draw(background_sprite);
+				//window.draw(enemy1_sprite);
 			}
 		}
 		window.draw(doodle1.doodle_sprite);
@@ -204,7 +207,7 @@ int main()
 			window.draw(power_pl_sprite);
 		}*/
 		//window.draw(platform_sprite);
-		//window.draw(enemy.enemy_sprite);
+	//	window.draw(enemy.enemy_sprite);
 		window.display();
 	}
 
