@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <time.h>
 #include "Map.h"
@@ -64,6 +65,11 @@ void menu(RenderWindow & window) {
 	AboutButtonSprite.setPosition(170, 490);
 	menuBg.setPosition(100, 300);
 	tarelka_sprite.setPosition(50, 120);
+
+	Music music;
+	music.openFromFile("f:/C++SFML/SFML_WIN/Music/Menu_music.ogg");
+	music.play();
+	music.setLoop(true);
 
 	bool isMenu = 1;
 	int menuNum = 0;

@@ -42,31 +42,35 @@ int main()
 	
 
 	//Downoload images from file
-	Image background, platform, doodle_fire, start_backgr, crush_platf, power_plat, enemy1_im;
-	background.loadFromFile("f:/C++SFML/SFML_WIN/images/background_fone.jpg");
+	Image background, platform, doodle_fire, start_backgr, crush_platf, power_plat, moving_plat, enemy1_im;
+	background.loadFromFile("f:/C++SFML/SFML_WIN/images/bacground_mode.png");
 	enemy1_im.loadFromFile("f:/C++SFML/SFML_WIN/images/enemy_3_.png");
 	platform.loadFromFile("f:/C++SFML/SFML_WIN/images/Doodle_Platform_green.png");
 	crush_platf.loadFromFile("f:/C++SFML/SFML_WIN/images/Doodle_Platform_crush.png");
+	moving_plat.loadFromFile("f:/C++SFML/SFML_WIN/images/Doodle_Platforms_moving.png");
 	power_plat.loadFromFile("f:/C++SFML/SFML_WIN/images/Doodle_Platform_power.png");
 	start_backgr.loadFromFile("f:/C++SFML/SFML_WIN/images/background_fone.jpg");
 	platform.createMaskFromColor(Color::White);
 	enemy1_im.createMaskFromColor(Color::White);
 	crush_platf.createMaskFromColor(Color::White);
 	power_plat.createMaskFromColor(Color::White);
+	moving_plat.createMaskFromColor(Color::White);
 
 	//Making textures from images
-	Texture background_tex, platform_tex, start_bacg_tex, crush_pl_tex, power_pl_tex, enemy1_tex;
+	Texture background_tex, platform_tex, start_bacg_tex, crush_pl_tex, power_pl_tex, moving_pl_tex, enemy1_tex;
 	background_tex.loadFromImage(background);
 	enemy1_tex.loadFromImage(enemy1_im);
 	platform_tex.loadFromImage(platform);
+	moving_pl_tex.loadFromImage(moving_plat);
 	crush_pl_tex.loadFromImage(crush_platf);
 	power_pl_tex.loadFromImage(power_plat);
 	start_bacg_tex.loadFromImage(start_backgr);
 
 	//Making sprites
-	Sprite background_sprite, platform_sprite, start_backg_sprite, crush_pl_sprite, power_pl_sprite, enemy1_sprite;
+	Sprite background_sprite, platform_sprite, start_backg_sprite, moving_pl_spr, crush_pl_sprite, power_pl_sprite, enemy1_sprite;
 	background_sprite.setTexture(background_tex);
 	platform_sprite.setTexture(platform_tex);
+	moving_pl_spr.setTexture(moving_pl_tex);
 	enemy1_sprite.setTexture(enemy1_tex);
 	crush_pl_sprite.setTexture(crush_pl_tex);
 	power_pl_sprite.setTexture(power_pl_tex);
@@ -74,6 +78,18 @@ int main()
 	
 
 	Doodle doodle1("Doodler_1.png", 5, 5, 120, 120, 100, 100);// creating an object of class Doodle
+
+	//think, where put it
+	SoundBuffer buffer;
+	buffer.loadFromFile("f:/C++SFML/SFML_WIN/Music/Fail_music.ogg");
+	Sound sound;
+	sound.setBuffer(buffer);
+	
+	//TODO with Fone_music1.ogg//Menu_music is working
+	/*Music music;
+	music.openFromFile("f:/C++SFML/SFML_WIN/Music/Menu_music.ogg");
+	music.play();
+	music.setLoop(true);*/
 	
 
 	//Enemies enemy = Enemies(10, 10, 200, 190, 300, 300);
@@ -132,7 +148,7 @@ int main()
 			}
 		}
 
-/*		if (y < h) {
+		/*if (y < h) {
 			for (int i = 0; i < 5; i++) {
 				y = h;
 				crush_platforms[i].y = crush_platforms[i].y - dy;
@@ -152,16 +168,17 @@ int main()
 					power_platforms[i].x = rand() % 700;
 				}
 			}
-		}
-		*/
+		}*/
+		
 		//jumping over the platforms
+
 		for (int i = 0; i < 15; i++) {
 			if ((x + 50 > platforms[i].x) && (x + 20 < platforms[i].x + 68) && (y + 70 > platforms[i].y) && (y + 70 < platforms[i].y + 14) && (dy > 0)) {
 				dy = -10;
 			}
 		}
 
-		/*for (int i = 0; i < 3; i++) {
+	/*	for (int i = 0; i < 3; i++) {
 			if ((x + 50 > power_platforms[i].x) && (x + 20 < power_platforms[i].x + 68) && (y + 70 > power_platforms[i].y) && (y + 70 < power_platforms[i].y + 14) && (dy > 0)) {
 				dy = -10;
 			}
@@ -181,16 +198,17 @@ int main()
 		//Making a background to play
 		for (int i = 0; i < MAP_HEIGHT; i++) {
 			for (int j = 0; j < MAP_WIDTH; j++){
-				if (TileMap[i][j] == " ") {
-					background_sprite.setTextureRect(IntRect(50, 50, 300, 300));
+				if (TileMap[i][j] == ' ') {
+					background_sprite.setTextureRect(IntRect(0, 0, 55, 43));
 				}
 				/*if (TileMap[i][j] == "s") {
-					enemy1_sprite.setTextureRect(IntRect(5, 5, 80, 80));
+					background_sprite.setTextureRect(IntRect(0, 80, 60, 110));//TODO
+				}
+				if (TileMap[i][j] == 'e') {
+					background_sprite.setTextureRect(IntRect(132, 3, 204, 91));//TODO
 				}*/
 				background_sprite.setPosition(j * 32, i * 32);
-				//enemy1_sprite.setPosition(i * 32, j * 32);
 				window.draw(background_sprite);
-				//window.draw(enemy1_sprite);
 			}
 		}
 		window.draw(doodle1.doodle_sprite);
