@@ -18,7 +18,7 @@ void menu(RenderWindow & window) {
 	//StartButtonImage.createMaskFromColor(Color(243, 234, 225));
 
 	//loading textures
-	Texture StartButtonTexture, StartButtonBlueText, diraTexture, ExitTexture, Enemy1Texture, NameTexture, HelpInfoTexture, AboutDeveloperTexture, menuBackground, DoodleTexture, start_bacg_tex, SettingsButtonTexture, AboutButton_tex, tarelka_tex, HelpButtonTexture, PlatformTexture;
+	Texture Settings_info_tex, StartButtonTexture, StartButtonBlueText, diraTexture, ExitTexture, Enemy1Texture, NameTexture, HelpInfoTexture, AboutDeveloperTexture, menuBackground, DoodleTexture, start_bacg_tex, SettingsButtonTexture, AboutButton_tex, tarelka_tex, HelpButtonTexture, PlatformTexture;
 	
 	StartButtonTexture.loadFromImage(StartButtonImage);
 	HelpInfoTexture.loadFromFile("f:/C++SFML/SFML_WIN/images/HelpInfo.png");
@@ -31,6 +31,7 @@ void menu(RenderWindow & window) {
 	DoodleTexture.loadFromFile("f:/C++SFML/SFML_WIN/images/Doodler.png");
 	PlatformTexture.loadFromFile("f:/C++SFML/SFML_WIN/images/Doodle_Platform_green.png");
 	HelpButtonTexture.loadFromFile("f:/C++SFML/SFML_WIN/images/HelpButton.png");
+	Settings_info_tex.loadFromFile("f:/C++SFML/SFML_WIN/images/Settings_info.png");
 	tarelka_tex.loadFromImage(tarelkaIm);
 	SettingsButtonTexture.loadFromImage(SettingsButtonImage);
 	start_bacg_tex.loadFromImage(start_backgr);
@@ -38,7 +39,7 @@ void menu(RenderWindow & window) {
 	AboutButton_tex.loadFromFile("f:/C++SFML/SFML_WIN/images/aboutButton1.png");
 
 	//loading sprites
-	Sprite StartButtonSprite(StartButtonTexture), HelpInfoSprite(HelpInfoTexture), StartButtonBluespr(StartButtonBlueText), NameSprite(NameTexture), ExitSprite(ExitTexture), Enemy1Sprite(Enemy1Texture), diraSprite(diraTexture), AboutDeveloperSprite(AboutDeveloperTexture), DoodleSprite(DoodleTexture), PlatformSprite(PlatformTexture), HelpButtonSprite(HelpButtonTexture), menuBg(menuBackground), AboutButtonSprite(AboutButton_tex), tarelka_sprite(tarelka_tex), start_backg_sprite(start_bacg_tex), SettingsButtonSprite(SettingsButtonTexture);
+	Sprite StartButtonSprite(StartButtonTexture), HelpInfoSprite(HelpInfoTexture), Settings_info_sprite(Settings_info_tex), StartButtonBluespr(StartButtonBlueText), NameSprite(NameTexture), ExitSprite(ExitTexture), Enemy1Sprite(Enemy1Texture), diraSprite(diraTexture), AboutDeveloperSprite(AboutDeveloperTexture), DoodleSprite(DoodleTexture), PlatformSprite(PlatformTexture), HelpButtonSprite(HelpButtonTexture), menuBg(menuBackground), AboutButtonSprite(AboutButton_tex), tarelka_sprite(tarelka_tex), start_backg_sprite(start_bacg_tex), SettingsButtonSprite(SettingsButtonTexture);
 	
 	StartButtonSprite.setTextureRect(IntRect(5, 10, 200, 100));
 	//StartButtonBluespr.setTextureRect(IntRect(5, 10, 200, 100));
@@ -69,7 +70,12 @@ void menu(RenderWindow & window) {
 	Music music;
 	music.openFromFile("f:/C++SFML/SFML_WIN/Music/Menu_music.ogg");
 	music.play();
+	music.setVolume(50);
 	music.setLoop(true);
+	
+	
+
+	
 
 	bool isMenu = 1;
 	int menuNum = 0;
@@ -80,10 +86,30 @@ void menu(RenderWindow & window) {
 		menuNum = 0;
 		window.clear(Color::White);
 
+		if (Keyboard::isKeyPressed(Keyboard::F10)) {
+			music.pause();
+		}
+		if (Keyboard::isKeyPressed(Keyboard::F9)) {
+			music.play();
+		}
+		
+		//TODO
+		if (Keyboard::isKeyPressed(Keyboard::Subtract))
+		{
+			music.setVolume(music.getVolume() - 1);
+		}
+		if (Keyboard::isKeyPressed(Keyboard::Add))
+		{
+			music.setVolume(music.getVolume() + 1);
+		}
+		
+
 		if (IntRect(100, 30, 150, 90).contains(Mouse::getPosition(window))) { /*window.draw(StartButtonBluespr); window.display();*/ menuNum = 1; }
 		if (IntRect(170, 490, 220, 520).contains(Mouse::getPosition(window))) {menuNum = 2; }
 		if (IntRect(100, 600, 200, 670).contains(Mouse::getPosition(window))) { menuNum = 3; }
 		if (IntRect(20, 350, 70, 410).contains(Mouse::getPosition(window))) { menuNum = 4; }
+		if (IntRect(80, 120, 250, 180).contains(Mouse::getPosition(window))) { menuNum = 5; }
+
 
 		if (Mouse::isButtonPressed(Mouse::Left))
 		{
@@ -91,6 +117,7 @@ void menu(RenderWindow & window) {
 			if (menuNum == 2) { window.draw(AboutDeveloperSprite); window.display(); while (!Keyboard::isKeyPressed(Keyboard::Escape)); }
 			if (menuNum == 3) { window.close(); isMenu = false; }
 			if (menuNum == 4) { window.draw(HelpInfoSprite); window.display(); while (!Keyboard::isKeyPressed(Keyboard::Escape));}
+			if (menuNum == 5) {window.draw(Settings_info_sprite); window.display(); while (!Keyboard::isKeyPressed(Keyboard::Escape));}
 		}
 
 		//window.draw(menuBg);
