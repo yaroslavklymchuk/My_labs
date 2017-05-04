@@ -1,6 +1,8 @@
 //TODO 
 //Create function Get doodle_sprite!!!!
 
+#pragma once
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <time.h>
@@ -12,17 +14,27 @@ class Doodle
 {
 public:
 	Sprite doodle_sprite;
-	Doodle(String, float, float, float, float, float, float);
+	int player_score = 0;
+	bool isLife = true;
+	Doodle(String, float, float, float, float, float, float, bool, float);
 	inline float GetPositionX() {
 		return positionX;
 	}
 	inline float GetPositionY() {
 		return positionY;
 	}
+	float GetScore() {
+		return player_score;
+	}
+	Doodle & SetScore(float a) {
+		player_score = a;
+		return *this;
+	}
 	~Doodle();
 
 private:
-	float x_l, y_l, x_r, y_r, positionX, positionY;
+	float x_l, y_l, x_r, y_r, positionX, positionY; //player_score;
+	//bool islife;
 	String file_name;
 	Image doodle_im;
 	Texture doodle_tex;
@@ -30,7 +42,7 @@ private:
 
 };
 
-Doodle::Doodle(String file, float x_left, float y_left, float x_right, float y_right, float x_, float y_){
+Doodle::Doodle(String file, float x_left, float y_left, float x_right, float y_right, float x_, float y_, bool islife = 1, float player_score = 0){
 	doodle_im.loadFromFile("f:/C++SFML/SFML_WIN/images/" + file);
 	doodle_im.createMaskFromColor(Color::White);
 	doodle_tex.loadFromImage(doodle_im);
