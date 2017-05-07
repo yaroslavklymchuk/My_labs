@@ -1,6 +1,3 @@
-//TODO 
-//Create function Get doodle_sprite!!!!
-
 #pragma once
 
 #include <SFML/Graphics.hpp>
@@ -14,8 +11,8 @@ class Doodle
 {
 public:
 	Sprite doodle_sprite;
-	int player_score = 0;
-	bool isLife = true;
+	/*int player_score = 0;
+	bool isLife = true;*/
 	Doodle(String, float, float, float, float, float, float, bool, float);
 	inline float GetPositionX() {
 		return positionX;
@@ -30,16 +27,22 @@ public:
 		player_score = a;
 		return *this;
 	}
+	bool IsLife() {
+		return isLife;
+	}
+	Doodle & SetLife(bool a) {
+		isLife = a;
+		return *this;
+	}
 	~Doodle();
 
 private:
-	float x_l, y_l, x_r, y_r, positionX, positionY; //player_score;
-	//bool islife;
+	float x_l, y_l, x_r, y_r, positionX, positionY;
+	int player_score = 0;
+	bool isLife = true;
 	String file_name;
 	Image doodle_im;
 	Texture doodle_tex;
-	//Sprite doodle_sprite;
-
 };
 
 Doodle::Doodle(String file, float x_left, float y_left, float x_right, float y_right, float x_, float y_, bool islife = 1, float player_score = 0){

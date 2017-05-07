@@ -1,19 +1,19 @@
 ﻿  SFML_wincpp.cpp
-f:\c++sfml\sfml_win\sfml_win\heroes.h(27): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\heroes.h(30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\heroes.h(56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\heroes.h(86): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\heroes.h(99): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\heroes.h(24): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\heroes.h(27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\heroes.h(59): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\heroes.h(89): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\heroes.h(102): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 f:\c++sfml\sfml_win\sfml_win\menu.h(180): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 f:\c++sfml\sfml_win\sfml_win\menu.h(202): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\menu.h(289): warning C4244: 'initializing': conversion from 'sf::Int64' to 'float', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\menu.h(304): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\menu.h(308): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\menu.h(314): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\menu.h(333): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\menu.h(406): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\menu.h(283): warning C4244: 'initializing': conversion from 'sf::Int64' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\menu.h(298): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\menu.h(302): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\menu.h(308): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\menu.h(327): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\menu.h(400): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+f:\c++sfml\sfml_win\sfml_win\menu.h(416): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 f:\c++sfml\sfml_win\sfml_win\menu.h(422): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\menu.h(428): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-f:\c++sfml\sfml_win\sfml_win\menu.h(458): warning C4715: 'RestartFunctuion': not all control paths return a value
+f:\c++sfml\sfml_win\sfml_win\menu.h(452): warning C4715: 'RestartFunctuion': not all control paths return a value
   SFML_WIN.vcxproj -> F:\C++SFML\SFML_WIN\Debug\SFML_WIN.exe
   SFML_WIN.vcxproj -> F:\C++SFML\SFML_WIN\Debug\SFML_WIN.pdb (Partial PDB)

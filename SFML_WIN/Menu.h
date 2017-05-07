@@ -163,7 +163,7 @@ void GetStatistic(RenderWindow & window, Doodle obj, float a) {
 	
 
 		std::ostringstream PlayerScoreString, PlayerTime;
-		PlayerScoreString << obj.player_score;
+		PlayerScoreString << obj.GetScore();
 		PlayerTime << a;
 		text.setPosition(200, 200);
 		text1.setPosition(200, 400);
@@ -219,12 +219,7 @@ bool RestartFunctuion() {
 	menu(window);
 	window.setVerticalSyncEnabled(true);
 
-	/*
-	Font font;//шрифт 
-	font.loadFromFile("f:/C++SFML/SFML_WIN/Shrifts/AmateurCamcorder.otf");//передаем нашему шрифту файл шрифта
-	Text text("", font, 50);//создаем объект текст. закидываем в объект текст строку, шрифт, размер шрифта(в пикселях);//сам объект текст (не строка)
-	text.setStyle(Text::Bold);*/
-
+	
 	//Downoload images from file
 	Image background, platform, doodle_fire, start_backgr, crush_platf, power_plat, moving_plat, enemy1_im;
 	background.loadFromFile("f:/C++SFML/SFML_WIN/images/background.jpg");
@@ -261,7 +256,7 @@ bool RestartFunctuion() {
 	start_backg_sprite.setTexture(start_bacg_tex);
 
 
-	Doodle doodle1("Doodler_1.png", 5, 5, 120, 120, 100, 100);// creating an object of class Doodle
+	Doodle doodle("Doodler_1.png", 5, 5, 120, 120, 100, 100);// creating an object of class Doodle
 
 	//TODO with Fone_music1.ogg//Menu_music is working
 	/*Music music;
@@ -274,17 +269,16 @@ bool RestartFunctuion() {
 
 
 	int x = 100, y = 100, h = 200;
-	float dx = 0, dy = 0;
+	float dy = 0;
 
 
 	Clock clock;
-	float TimerForDeath = 0;
 	float TimeInGame = 0;
 
 	//Main SFML loop for main window
 	while (window.isOpen())
 	{
-		if (doodle1.isLife) {
+		if (doodle.IsLife()) {
 
 			float time = clock.getElapsedTime().asMicroseconds();
 			float time1 = clock.getElapsedTime().asSeconds();
@@ -302,15 +296,15 @@ bool RestartFunctuion() {
 
 			if (Keyboard::isKeyPressed(Keyboard::Right)) {
 				x += 7 * time;
-				doodle1.doodle_sprite.setTextureRect(IntRect(5, 5, 120, 120));
+				doodle.doodle_sprite.setTextureRect(IntRect(5, 5, 120, 120));
 			}
 			if (Keyboard::isKeyPressed(Keyboard::Left)) {
 				x -= 7 * time;
-				doodle1.doodle_sprite.setTextureRect(IntRect(125, 5, -120, 120));
+				doodle.doodle_sprite.setTextureRect(IntRect(125, 5, -120, 120));
 			}
 
 			//moving upstairs
-			dy += 0.25;//частота прыжков
+			dy += 0.25;//частота(скорость) прыжков
 			y += dy;
 
 
@@ -336,7 +330,7 @@ bool RestartFunctuion() {
 						platforms[i].x = rand() % 700;
 					}
 				}
-				doodle1.player_score += 1;
+				doodle.SetScore(doodle.GetScore() + 1);//doodle1.player_score += 1;
 			}
 
 
@@ -403,10 +397,10 @@ bool RestartFunctuion() {
 			}
 			}*/
 
-			doodle1.doodle_sprite.setPosition(x, y);
+			doodle.doodle_sprite.setPosition(x, y);
 
 			if (y > max) {
-				doodle1.isLife = false;
+				doodle.SetLife(false);//doodle1.isLife = false;
 			}
 
 			window.clear();
@@ -423,7 +417,7 @@ bool RestartFunctuion() {
 					window.draw(background_sprite);
 				}
 			}
-			window.draw(doodle1.doodle_sprite);
+			window.draw(doodle.doodle_sprite);
 			for (int i = 0; i < 15; i++) {
 				platform_sprite.setPosition(platforms[i].x, platforms[i].y);
 				window.draw(platform_sprite);
@@ -440,7 +434,7 @@ bool RestartFunctuion() {
 			//window.draw(enemy.enemy_sprite);
 		}
 		else {
-			GetStatistic(window, doodle1, TimeInGame);
+			GetStatistic(window, doodle, TimeInGame);
 		}
 
 		if(Keyboard::isKeyPressed(Keyboard::Tab)){
@@ -449,11 +443,11 @@ bool RestartFunctuion() {
 		window.display();
 	}
 	//std::cout << doodle1.player_score <<"\n";
-	std::cout << doodle1.isLife;
+	/*std::cout << doodle1.isLife;
 	std::cout << "\n";
 	std::cout << max;
 	std::cout << "\n";
-	std::cout << y;
+	std::cout << y;*/
 	system("pause");
 }
 
